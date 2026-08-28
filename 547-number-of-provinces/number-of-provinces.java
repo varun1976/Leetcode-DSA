@@ -3,8 +3,8 @@ class Solution {
         ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
         int n=isConnected.length;
         int province=0;
-        for(int i=0;i<n;i++) adj.add(new ArrayList<>());
         for(int i=0;i<n;i++){
+            adj.add(new ArrayList<>());
             for(int j=0;j<n;j++){
                 if(isConnected[i][j]==1){
                     adj.get(i).add(j);
