@@ -10,7 +10,6 @@ class Solution {
     public int shortestPathBinaryMatrix(int[][] grid) {
         int n=grid.length;
         if(grid[0][0]==1 || grid[n-1][n-1]==1) return -1;
-        int mini=(int)1e6;
         int dr[]={-1,-1,0,1,1,1,0,-1};
         int dc[]={0,1,1,1,0,-1,-1,-1};
         boolean vis[][]=new boolean[n][n];
@@ -21,8 +20,8 @@ class Solution {
             int currRow=q.peek().row;
             int currCol=q.peek().col;
             int currDist=q.peek().dist;
+            if(currRow==n-1 && currCol==n-1) return currDist+1;
             q.poll();
-            if(currRow==n-1 && currCol==n-1) mini=Math.min(mini,currDist);
             for(int i=0;i<8;i++){
                 int adjRow=currRow+dr[i];
                 int adjCol=currCol+dc[i];
@@ -32,7 +31,7 @@ class Solution {
                 }
             }
         }
-        if(mini==1e6) return -1;
-        return mini+1;
+        return -1;
+        
     }
 }
