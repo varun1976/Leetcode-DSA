@@ -29,15 +29,12 @@ class Solution {
 
         for(int adjVer : adj.get(ver)){
             if(adjVer == par) continue;
-            
+
             if(!vis[adjVer]){
                 dfs(adjVer, ver, vis, tin, low, res, adj);
                 low[ver] = Math.min(low[ver], low[adjVer]);
                 if(low[adjVer] > tin[ver]){
-                    List<Integer> bridge = new ArrayList<>();
-                    bridge.add(ver);
-                    bridge.add(adjVer);
-                    res.add(bridge);
+                    res.add(Arrays.asList(ver,adjVer));
                 }
             }
             else{
