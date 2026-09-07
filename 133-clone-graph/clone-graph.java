@@ -45,3 +45,28 @@ class Solution {
         return clonedNode;
     }
 }
+
+// //DFS
+// class Solution {
+//     HashMap<Node, Node> map = new HashMap<>();
+
+//     public Node cloneGraph(Node node) {
+//         if(node == null) return null;
+//         return clone(node);
+//     }
+
+//     public Node clone(Node node) {
+//         if(map.containsKey(node)) {
+//             return map.get(node);
+//         }
+
+//         Node copy = new Node(node.val);
+//         map.put(node, copy);
+
+//         for(Node nei : node.neighbors) {
+//             copy.neighbors.add(clone(nei));
+//         }
+
+//         return copy;
+//     }
+// }
