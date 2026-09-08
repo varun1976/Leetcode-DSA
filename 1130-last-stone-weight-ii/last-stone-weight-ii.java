@@ -23,10 +23,9 @@ class Solution {
         boolean dp[][]=new boolean[n][totSum+1];
         isSubsetSum(totSum,stones,dp,n);
         int mini=Integer.MAX_VALUE;
-        for(int s1=0;s1<=totSum;s1++){
-            if(dp[n-1][s1]){
-                mini=Math.min(mini,Math.abs(s1-(totSum-s1)));
-            }
+        for(int s1=totSum/2;s1>=0;s1--){
+            if(dp[n-1][s1])
+                return totSum-2*s1;
         }
         return mini;
     }
