@@ -18,6 +18,13 @@ class Solution {
     public int cherryPickup(int[][] grid) {
         int m=grid.length,n=grid[0].length;
         Integer dp[][][]=new Integer[m][n][n];
+        return f(0,0,n-1,grid,m,n,dp);
+    }
+
+    //Tabulation Solution
+    public int cherryPickupTabulation(int[][] grid) {
+        int m=grid.length,n=grid[0].length;
+        Integer dp[][][]=new Integer[m][n][n];
         for(int j1=0;j1<n;j1++){
             for(int j2=0;j2<n;j2++){
                 if(j1==j2) dp[m-1][j1][j2]=grid[m-1][j1];
