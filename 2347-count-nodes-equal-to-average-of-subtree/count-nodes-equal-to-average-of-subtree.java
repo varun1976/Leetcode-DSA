@@ -26,9 +26,9 @@ class Solution {
 
         int sum=left[0]+right[0]+root.val;
         int nodesCount=left[1]+right[1]+1;
-        if(sum/nodesCount==root.val){
-            res++;
-        }
+        
+        if(sum/nodesCount==root.val) res++;
+
         return new int[]{sum,nodesCount};
     }
 }
