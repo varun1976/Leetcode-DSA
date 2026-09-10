@@ -14,20 +14,20 @@
  * }
  */
 class Solution {
+    int res=0;
     public int averageOfSubtree(TreeNode root) {
-        int res[]=new int[]{0};
-        f(root,res);
-        return res[0];
+        f(root);
+        return res;
     }
-    public static int[] f(TreeNode root,int res[]){
+    public int[] f(TreeNode root){
         if(root==null) return new int[]{0,0}; //sum,nodesCount
-        int left[]=f(root.left,res);
-        int right[]=f(root.right,res);
+        int left[]=f(root.left);
+        int right[]=f(root.right);
 
         int sum=left[0]+right[0]+root.val;
         int nodesCount=left[1]+right[1]+1;
         if(sum/nodesCount==root.val){
-            res[0]++;
+            res++;
         }
         return new int[]{sum,nodesCount};
     }
