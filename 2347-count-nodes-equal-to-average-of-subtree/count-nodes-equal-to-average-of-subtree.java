@@ -28,7 +28,6 @@ class Solution {
         int nodesCount=left[1]+right[1]+1;
         if(sum/nodesCount==root.val){
             res[0]++;
-            System.out.println(root.val);
         }
         return new int[]{sum,nodesCount};
     }
