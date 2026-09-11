@@ -1,37 +1,22 @@
 class Solution {
     public int totalNumbers(int[] digits) {
-        int[] freq = new int[10];
-
-        for(int digit : digits) {
-            freq[digit]++;
-        }
-
-        int count = 0;
-
-        for(int a = 1; a <= 9; a++) {
-            for(int b = 0; b <= 9; b++) {
-                for(int c = 0; c <= 8; c += 2) {
-                    int[] need = new int[10];
-                    need[a]++;
-                    need[b]++;
-                    need[c]++;
-
-                    boolean possible = true;
-
-                    for(int d = 0; d <= 9; d++) {
-                        if(need[d] > freq[d]) {
-                            possible = false;
-                            break;
+        HashSet<Integer> map = new HashSet<>();
+        int n = digits.length;
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                for (int k = 0; k < n; k++) {
+                    if (i != j && i != k && j != k) {
+                        if (digits[i] != 0) {
+                            if (digits[k] % 2 == 0) {
+                                int number = digits[i] * 100 + digits[j] * 10 + digits[k];
+                                map.add(number);
+                            }
                         }
-                    }
-
-                    if(possible) {
-                        count++;
                     }
                 }
             }
         }
-
-        return count;
+        return map.size();
     }
 }
