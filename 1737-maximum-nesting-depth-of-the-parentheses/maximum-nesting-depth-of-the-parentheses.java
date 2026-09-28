@@ -3,7 +3,7 @@ class Solution {
         Solution sol=new Solution();
         String test="(1+(2*3)+((8)/4))+1";
 
-        for(int i=0;i<100000;i++)
+        for(int i=0;i<1000;i++)
             sol.maxDepth(test);
     }
 
