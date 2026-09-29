@@ -15,7 +15,7 @@ class Solution {
 
     public boolean hasValidPath(char[][] grid) {
         int m=grid.length,n=grid[0].length;
-        if(grid[0][0]==')'||grid[m-1][n-1]=='(') return false;
+        if((m+n-1)%2!=0||grid[0][0]==')'||grid[m-1][n-1]=='(') return false;
         int maxBalance=m+n;
         Boolean[][][] dp=new Boolean[m][n][maxBalance+1];
         return f(0,0,0,grid,m,n,dp);
